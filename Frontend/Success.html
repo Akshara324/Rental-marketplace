@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Booking Successful</title>
+
+<link rel="stylesheet" href="css/Payment.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="payment-box">
+
+<h1>🎉 Booking Successful</h1>
+
+<br>
+
+<h2>Your booking has been confirmed.</h2>
+
+<br>
+
+<h3 id="bookingId"></h3>
+
+<br>
+
+<a href="Dashboard.html">
+
+<button>
+
+Go To Dashboard
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const id="RH"+Math.floor(Math.random()*100000);
+
+document.getElementById("bookingId").innerHTML="Booking ID : "+id;
+
+</script>
+
+</body>
+
+</html>
