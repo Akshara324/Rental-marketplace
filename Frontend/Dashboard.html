@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | RentHub</title>
+
+<link rel="stylesheet" href="css/Dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<h2>🏠 RentHub</h2>
+</div>
+
+<nav>
+
+<a href="Index.html">Home</a>
+
+<a href="Dashboard.html">Dashboard</a>
+
+<a href="Wishlist.html">Wishlist</a>
+
+<a href="Contact.html">Contact</a>
+
+<button id="logoutBtn">Logout</button>
+
+</nav>
+
+</header>
+
+<section class="dashboard">
+
+<div class="profile-card">
+
+<img src="images/user.png" alt="User">
+
+<h2 id="userName">Welcome User</h2>
+
+<p id="userEmail"></p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fa-solid fa-box-open"></i>
+
+<h3>My Bookings</h3>
+
+<h1 id="bookingCount">1</h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-heart"></i>
+
+<h3>Wishlist</h3>
+
+<h1>5</h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-wallet"></i>
+
+<h3>Total Spent</h3>
+
+<h1>₹<span id="spent">0</span></h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-star"></i>
+
+<h3>Reviews</h3>
+
+<h1>8</h1>
+
+</div>
+
+</div>
+
+<h2 class="title">
+
+Recent Booking
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>Item</th>
+
+<th>Days</th>
+
+<th>Total</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td id="item"></td>
+
+<td id="days"></td>
+
+<td>₹<span id="amount"></span></td>
+
+<td>
+
+<span class="status">
+
+Confirmed
+
+</span>
+
+</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<script src="js/Dashboard.js"></script>
+
+</body>
+
+</html>

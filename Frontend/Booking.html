@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking | RentHub</title>
+
+    <link rel="stylesheet" href="css/Booking.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <header>
+
+        <div class="logo">
+            <i class="fa-solid fa-box-open"></i>
+            <h2>RentHub</h2>
+        </div>
+
+        <nav>
+
+            <a href="Index.html">Home</a>
+            <a href="#">Browse</a>
+            <a href="#">Categories</a>
+            <a href="Dashboard.html">Dashboard</a>
+
+        </nav>
+
+    </header>
+
+    <!-- Booking Section -->
+
+    <section class="booking">
+
+        <div class="booking-card">
+
+            <div class="left">
+
+                <img id="itemImage" src="" alt="Item">
+
+<h1 id="itemName"></h1>
+
+<h2>
+
+₹<span id="pricePerDay"></span>
+
+<span>/Day</span>
+
+</h2>
+
+                <div class="input-group">
+
+                    <label>Start Date</label>
+
+                    <input type="date" id="startDate">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>End Date</label>
+
+                    <input type="date" id="endDate">
+
+                </div>
+
+                <div class="summary">
+
+                    <p>Rental Days :
+                        <span id="days">0</span>
+                    </p>
+
+                    <p>Total Amount :
+                        ₹<span id="total">0</span>
+                    </p>
+
+                </div>
+
+                <button id="continueBtn">
+
+                    Continue to Address
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<script src="js/Booking.js"></script>
+
+</body>
+</html>
