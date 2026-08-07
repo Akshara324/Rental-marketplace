@@ -20,7 +20,7 @@ form.addEventListener("submit", async (e) => {
     try {
 
         const response = await fetch(
-            "https://rental-marketplace-2.onrender.com/api/auth/register",
+            "/api/auth/register",
             {
                 method: "POST",
 

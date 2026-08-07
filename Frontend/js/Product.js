@@ -8,7 +8,7 @@ async function loadProduct() {
     try {
 
         const response = await fetch(
-            `https://rental-marketplace-2.onrender.com/api/products/${productId}`
+            `/api/products/${productId}`
         );
 
 

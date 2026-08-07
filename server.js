@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -20,7 +21,7 @@ app.use(express.json());
 
 
 // Serve Frontend
-app.use(express.static(path.join(__dirname, "../Frontend")));
+app.use(express.static(path.join(__dirname, "Frontend")));
 
 
 // API Routes
@@ -34,7 +35,7 @@ app.use("/api/products", productRoutes);
 // Home page
 app.get("/", (req, res) => {
     res.sendFile(
-        path.join(__dirname, "../Frontend/index.html")
+        path.join(__dirname, "Frontend/index.html")
     );
 });
 
