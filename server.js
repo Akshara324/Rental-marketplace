@@ -40,10 +40,68 @@ app.get("/", (req, res) => {
 });
 
 
+// Initialize Database Tables
+const initDb = async () => {
+    const queryText = `
+        CREATE TABLE IF NOT EXISTS users (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(100),
+            email VARCHAR(100) UNIQUE,
+            phone VARCHAR(20),
+            password VARCHAR(255)
+        );
+
+        CREATE TABLE IF NOT EXISTS products (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255),
+            category VARCHAR(100),
+            description TEXT,
+            price NUMERIC,
+            image TEXT,
+            owner_id INT REFERENCES users(id)
+        );
+
+        CREATE TABLE IF NOT EXISTS bookings (
+            id SERIAL PRIMARY KEY,
+            user_id INT REFERENCES users(id),
+            product_id INT REFERENCES products(id),
+            start_date DATE,
+            end_date DATE,
+            rental_days INT,
+            total_amount NUMERIC
+        );
+
+        CREATE TABLE IF NOT EXISTS payments (
+            id SERIAL PRIMARY KEY,
+            booking_id INT REFERENCES bookings(id),
+            payment_method VARCHAR(50),
+            amount NUMERIC
+        );
+
+        CREATE TABLE IF NOT EXISTS addresses (
+            id SERIAL PRIMARY KEY,
+            user_id INT REFERENCES users(id),
+            full_name VARCHAR(100),
+            phone VARCHAR(20),
+            address_line TEXT,
+            city VARCHAR(100),
+            state VARCHAR(100),
+            pincode VARCHAR(20)
+        );
+    `;
+    try {
+        await pool.query(queryText);
+        console.log("✅ Database tables initialized successfully");
+    } catch (err) {
+        console.log("❌ Error initializing tables:", err.message);
+    }
+};
+
 // Database connection
 pool.connect()
 .then(() => {
     console.log("✅ PostgreSQL Connected Successfully");
+    initDb();
 })
 .catch((err) => {
     console.log("❌ Database Connection Failed");
