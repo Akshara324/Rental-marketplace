@@ -1,4 +1,4 @@
-const params = new URLSearchParams(window.location.search);
+cconst params = new URLSearchParams(window.location.search);
 
 const productId = params.get("id");
 
@@ -8,8 +8,9 @@ async function loadProduct() {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/products/${productId}`
+            `https://rental-marketplace-2.onrender.com/api/products/${productId}`
         );
+
 
         const product = await response.json();
 

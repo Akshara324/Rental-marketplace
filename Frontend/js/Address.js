@@ -28,7 +28,8 @@ form.addEventListener("submit", async function (e) {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/address/add", {
+        const response = await fetch("https://rental-marketplace-2.onrender.com/api/address", {
+ {
 
             method: "POST",
 

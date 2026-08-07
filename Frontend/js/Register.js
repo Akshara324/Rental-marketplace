@@ -10,41 +10,50 @@ form.addEventListener("submit", async (e) => {
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
 
+
     if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return;
     }
 
+
     try {
 
-        const response = await fetch("http://localhost:5000/api/auth/register", {
+        const response = await fetch(
+            "https://rental-marketplace-2.onrender.com/api/auth/register",
+            {
+                method: "POST",
 
-            method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    phone,
+                    password
+                })
+            }
+        );
 
-            body: JSON.stringify({
-                name,
-                email,
-                phone,
-                password
-            })
-
-        });
 
         const data = await response.json();
 
         alert(data.message);
 
-        if (response.ok) {
-            window.location.href = "Login.html";
+
+        if(response.ok){
+
+            window.location.href="Login.html";
+
         }
 
-    } catch (err) {
+
+    } catch(err){
 
         console.log(err);
+
         alert("Unable to connect to the server.");
 
     }

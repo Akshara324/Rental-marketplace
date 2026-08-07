@@ -7,41 +7,55 @@ form.addEventListener("submit", async (e) => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
+
     try {
 
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch(
+            "https://rental-marketplace-2.onrender.com/api/auth/login",
+            {
+                method: "POST",
 
-            method: "POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            }
+        );
 
-            body: JSON.stringify({
-                email,
-                password
-            })
-
-        });
 
         const data = await response.json();
 
+
         alert(data.message);
 
-        if (response.ok) {
 
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("user", JSON.stringify(data.user));
+        if(response.ok){
 
-            window.location.href = "Dashboard.html";
+            localStorage.setItem(
+                "token",
+                data.token
+            );
 
+
+            localStorage.setItem(
+                "user",
+                JSON.stringify(data.user)
+            );
+
+
+            window.location.href="Dashboard.html";
         }
 
-    } catch (err) {
+
+    }catch(err){
 
         console.log(err);
 
-        alert("Unable to connect to the server.");
+        alert("Unable to connect to server.");
 
     }
 
