@@ -4,9 +4,12 @@ form.addEventListener("submit", async function (e) {
 
     e.preventDefault();
 
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userId = user ? user.id : 1;
+
     const addressData = {
 
-        user_id: 1, // We'll replace this with the logged-in user's ID later
+        user_id: userId,
 
         full_name: document.getElementById("name").value,
 
@@ -28,7 +31,7 @@ form.addEventListener("submit", async function (e) {
 
     try {
 
-        const response = await fetch("/api/address", {
+        const response = await fetch("/api/address/add", {
 
             method: "POST",
 
