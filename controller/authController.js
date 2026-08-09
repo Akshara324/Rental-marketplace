@@ -6,7 +6,8 @@ const registerUser = async (req, res) => {
 
     try {
 
-        const { name, email, phone, password } = req.body;
+        let { name, email, phone, password } = req.body;
+        email = email.trim().toLowerCase();
 
         // Check if email already exists
         const existingUser = await pool.query(
@@ -52,7 +53,8 @@ const loginUser = async (req, res) => {
 
     try {
 
-        const { email, password } = req.body;
+        let { email, password } = req.body;
+        email = email.trim().toLowerCase();
 
         const result = await pool.query(
             "SELECT * FROM users WHERE email = $1",

@@ -5,7 +5,7 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
+    const email = document.getElementById("email").value.trim().toLowerCase();
     const phone = document.getElementById("phone").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;

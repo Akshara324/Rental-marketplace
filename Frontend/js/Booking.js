@@ -59,8 +59,11 @@ document.getElementById("continueBtn").addEventListener("click", async () => {
         return;
     }
 
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userId = user ? user.id : 1;
+
     const bookingData = {
-        user_id: 1, // We'll replace this with the logged-in user's ID later
+        user_id: userId,
         product_id: item.id,
         start_date: start.value,
         end_date: end.value,
@@ -70,7 +73,7 @@ document.getElementById("continueBtn").addEventListener("click", async () => {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/bookings/add", {
+        const response = await fetch("/api/bookings/add", {
 
             method: "POST",
 
